@@ -11,16 +11,14 @@
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #fff5f5;
-            /* approximate cream-50 */
             color: #1a202c;
-            /* approximate gray-900 */
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
 
         header {
             background-color: #be123c;
-            /* rose-600 */
             color: white;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             position: sticky;
@@ -30,49 +28,46 @@
 
         header .container {
             max-width: 96rem;
-            /* 6xl ~ 1536px */
             margin: 0 auto;
             padding: 0 1.5rem;
-            /* px-6 */
             height: 4rem;
-            /* h-16 */
             display: flex;
             justify-content: space-between;
             align-items: center;
             text-transform: uppercase;
             font-weight: 700;
             font-size: 0.875rem;
-            /* text-sm */
             letter-spacing: 0.05em;
-            /* tracking-wide */
         }
 
         header h1 {
             margin: 0;
+            font-size: 1rem;
+            white-space: nowrap;
         }
 
         nav a {
             color: white;
             margin-left: 2rem;
-            /* space-x-8 */
             text-decoration: none;
             transition: color 0.3s ease;
+            font-weight: 600;
+            white-space: nowrap;
         }
 
-        nav a:hover {
+        nav a:hover,
+        nav a:focus {
             color: #fecdd3;
-            /* rose-200 */
+            outline: none;
         }
 
         main {
             max-width: 96rem;
-            /* 6xl */
             margin: 0 auto;
             padding: 1.5rem;
             display: flex;
             flex-direction: column;
             gap: 5rem;
-            /* space-y-20 */
         }
 
         /* Tanıtım Section */
@@ -83,13 +78,10 @@
         #about h2 {
             font-weight: 800;
             font-size: 2.25rem;
-            /* text-4xl */
             margin-bottom: 2rem;
             color: #be123c;
-            /* rose-600 */
             text-transform: uppercase;
             border-bottom: 0.25rem solid #fbcfe8;
-            /* rose-300 */
             display: inline-block;
             padding-bottom: 0.5rem;
             letter-spacing: 0.1em;
@@ -102,16 +94,9 @@
             align-items: center;
         }
 
-        @media(min-width: 768px) {
-            #about .content {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
         #about img {
             width: 100%;
             max-height: 24rem;
-            /* max-h-96 */
             object-fit: cover;
             border-radius: 0.5rem;
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
@@ -119,16 +104,14 @@
 
         #about p {
             font-size: 1.125rem;
-            line-height: 1.75rem;
             color: #4b5563;
-            /* gray-700 */
+            margin: 0;
         }
 
         /* Olanaklar Section */
         #facilities {
             padding-top: 3rem;
             border-top: 1px solid #fbcfe8;
-            /* rose-300 */
         }
 
         #facilities h2 {
@@ -146,12 +129,7 @@
         #facilities .grid {
             display: grid;
             gap: 2rem;
-        }
-
-        @media(min-width: 768px) {
-            #facilities .grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
+            grid-template-columns: 1fr;
         }
 
         #facilities .card {
@@ -160,12 +138,13 @@
             border-radius: 0.5rem;
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
             border: 1px solid #e5e7eb;
-            /* gray-200 */
             transition: box-shadow 0.3s ease;
         }
 
-        #facilities .card:hover {
+        #facilities .card:hover,
+        #facilities .card:focus-within {
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            outline: none;
         }
 
         #facilities h3 {
@@ -186,7 +165,6 @@
         #gallery {
             padding-top: 3rem;
             background-color: #fff1f2;
-            /* cream-100 approx */
             border-top: 1px solid #fbcfe8;
             border-radius: 0.5rem;
             padding: 1.5rem;
@@ -206,12 +184,7 @@
         #gallery .grid {
             display: grid;
             gap: 1.5rem;
-        }
-
-        @media(min-width: 768px) {
-            #gallery .grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
+            grid-template-columns: 1fr;
         }
 
         #gallery .img-wrapper {
@@ -230,14 +203,19 @@
             display: block;
         }
 
-        #gallery .img-wrapper:hover img {
+        #gallery .img-wrapper:hover img,
+        #gallery .img-wrapper:focus-within img {
             transform: scale(1.05);
+            outline: none;
         }
 
         /* Fiyat Section */
         #pricing {
             padding-top: 3rem;
             border-top: 1px solid #fbcfe8;
+            max-width: 28rem;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         #pricing h2 {
@@ -250,6 +228,8 @@
             display: inline-block;
             padding-bottom: 0.5rem;
             letter-spacing: 0.1em;
+            text-align: center;
+            width: 100%;
         }
 
         #pricing ul {
@@ -257,10 +237,8 @@
             list-style-position: inside;
             font-size: 1.125rem;
             color: #4b5563;
-            max-width: 28rem;
-            margin-left: auto;
-            margin-right: auto;
             padding-left: 0;
+            margin: 0;
             display: flex;
             flex-direction: column;
             gap: 0.75rem;
@@ -285,19 +263,12 @@
             font-size: 0.875rem;
         }
 
-        @media(min-width: 768px) {
-            footer .container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
         footer h4 {
             font-weight: 700;
             margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             border-bottom: 1px solid #9f1239;
-            /* rose-500 */
             padding-bottom: 0.5rem;
         }
 
@@ -309,10 +280,8 @@
             margin-top: 2rem;
             padding: 1rem;
             background-color: #e11d48;
-            /* rose-500 */
             border-radius: 0.5rem;
             border: 1px solid #7f1d1d;
-            /* rose-700 */
             box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
@@ -326,44 +295,28 @@
         footer .map-box iframe {
             width: 100%;
             height: 12rem;
-            /* h-48 */
             border-radius: 0.375rem;
-            /* rounded-md */
             border: 1px solid #7f1d1d;
             box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        /* Utility */
-        .uppercase {
-            text-transform: uppercase;
-        }
+        /* Responsive tweaks */
+        @media (min-width: 768px) {
+            #about .content {
+                grid-template-columns: 1fr 1fr;
+            }
 
-        .tracking-wide {
-            letter-spacing: 0.05em;
-        }
+            #facilities .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
 
-        .tracking-wide-wider {
-            letter-spacing: 0.1em;
-        }
+            #gallery .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
 
-        .font-bold {
-            font-weight: 700;
-        }
-
-        .font-extrabold {
-            font-weight: 800;
-        }
-
-        .font-semibold {
-            font-weight: 600;
-        }
-
-        .text-white {
-            color: white;
-        }
-
-        .text-rose-600 {
-            color: #be123c;
+            footer .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
@@ -372,9 +325,9 @@
 
     <!-- Top Navbar -->
     <header>
-        <div class="container">
+        <div class="container" role="banner">
             <h1>AMFI34 ERKEK ÖĞRENCİ YURDU</h1>
-            <nav>
+            <nav role="navigation" aria-label="Site navigation">
                 <a href="#about">Tanıtım</a>
                 <a href="#facilities">Olanaklar</a>
                 <a href="#gallery">Galeri</a>
@@ -385,9 +338,8 @@
     </header>
 
     <main>
-
         <!-- Tanıtım -->
-        <section id="about">
+        <section id="about" tabindex="-1">
             <h2>Tanıtım</h2>
             <div class="content">
                 <img src="amfi-main.jpg" alt="Yurt Girişi" />
@@ -400,30 +352,30 @@
         </section>
 
         <!-- Olanaklar -->
-        <section id="facilities">
+        <section id="facilities" tabindex="-1">
             <h2>Olanaklar</h2>
             <div class="grid">
-                <div class="card">
+                <div class="card" tabindex="0">
                     <h3>Oda Tipleri</h3>
                     <p>2, 3, 4 ve 6 kişilik geniş odalar</p>
                 </div>
-                <div class="card">
+                <div class="card" tabindex="0">
                     <h3>Yemek Hizmeti</h3>
                     <p>Sabah kahvaltısı</p>
                 </div>
-                <div class="card">
+                <div class="card" tabindex="0">
                     <h3>Güvenlik</h3>
                     <p>7/24 güvenlik personeli ve kamera sistemi</p>
                 </div>
-                <div class="card">
+                <div class="card" tabindex="0">
                     <h3>Temizlik</h3>
                     <p>Haftalık oda temizliği ve günlük ortak alan bakımı</p>
                 </div>
-                <div class="card">
+                <div class="card" tabindex="0">
                     <h3>İnternet</h3>
                     <p>Hızlı ve ücretsiz Wi-Fi</p>
                 </div>
-                <div class="card">
+                <div class="card" tabindex="0">
                     <h3>Sosyal Alanlar</h3>
                     <p>Etüt salonu, dinlenme alanı, mutfak</p>
                 </div>
@@ -431,23 +383,23 @@
         </section>
 
         <!-- Galeri -->
-        <section id="gallery">
+        <section id="gallery" tabindex="-1">
             <h2>Galeri</h2>
             <div class="grid">
-                <div class="img-wrapper">
+                <div class="img-wrapper" tabindex="0">
                     <img src="amfi-room1.jpg" alt="Oda 1" />
                 </div>
-                <div class="img-wrapper">
+                <div class="img-wrapper" tabindex="0">
                     <img src="amfi-room2.jpg" alt="Oda 2" />
                 </div>
-                <div class="img-wrapper">
+                <div class="img-wrapper" tabindex="0">
                     <img src="amfi-common.jpg" alt="Ortak Alan" />
                 </div>
             </div>
         </section>
 
         <!-- Fiyat -->
-        <section id="pricing">
+        <section id="pricing" tabindex="-1">
             <h2>Fiyatlandırma (2025)</h2>
             <ul>
                 <li>1 kişilik oda: 6800$</li>
@@ -456,33 +408,32 @@
                 <li>6 kişilik oda: 3300$</li>
             </ul>
         </section>
+    </main>
 
-        <!-- Footer -->
-        <footer id="contact">
-            <div class="container">
-                <div>
-                    <h4>İletişim Bilgileri</h4>
-                    <p>Adres: Mimar Sinan Mah. İsmail Dümbüllü Sk. No:3/1 Üsküdar/İSTANBUL</p>
-                    <p>E-posta: info@amfi34yurt.com</p>
+    <!-- Footer -->
+    <footer id="contact" tabindex="-1">
+        <div class="container">
+            <div>
+                <h4>İletişim Bilgileri</h4>
+                <p>Adres: Mimar Sinan Mah. İsmail Dümbüllü Sk. No:3/1 Üsküdar/İSTANBUL</p>
+                <p>E-posta: info@amfi34yurt.com</p>
 
-                    <div class="map-box">
-                        <h5>Yurt Konumu</h5>
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12034.910472773462!2d29.0404621!3d41.0265169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab87c0bdf9c3f%3A0x8396ce4937a38cc9!2sSelamiali%2C%20%C3%9Csk%C3%BCdar%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1690106500000!5m2!1str!2str"
-                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-
-                <div>
-                    <h4>Çalışma Saatleri</h4>
-                    <p>Hafta içi: 09:00 - 18:00</p>
-                    <p>Cumartesi: 10:00 - 16:00</p>
-                    <p>Pazar: Kapalı</p>
+                <div class="map-box">
+                    <h5>Yurt Konumu</h5>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12034.910472773462!2d29.0404621!3d41.0265169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab87c0bdf9c3f%3A0x8396ce4937a38cc9!2sSelamiali%2C%20%C3%9Csk%C3%BCdar%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1690106500000!5m2!1str!2str"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
-        </footer>
 
-    </main>
+            <div>
+                <h4>Çalışma Saatleri</h4>
+                <p>Hafta içi: 09:00 - 18:00</p>
+                <p>Cumartesi: 10:00 - 16:00</p>
+                <p>Pazar: Kapalı</p>
+            </div>
+        </div>
+    </footer>
 
 </body>
 
