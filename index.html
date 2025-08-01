@@ -7,42 +7,391 @@
     <title>Amfi34 Erkek Öğrenci Yurdu</title>
     <link rel="icon" href="https://www.amfi34ogrenciyurdu.com/wp-content/uploads/2022/08/favicon.png" sizes="32x32" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
+            background-color: #fff5f5;
+            /* approximate cream-50 */
+            color: #1a202c;
+            /* approximate gray-900 */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #be123c;
+            /* rose-600 */
+            color: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        header .container {
+            max-width: 96rem;
+            /* 6xl ~ 1536px */
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            /* px-6 */
+            height: 4rem;
+            /* h-16 */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.875rem;
+            /* text-sm */
+            letter-spacing: 0.05em;
+            /* tracking-wide */
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            margin-left: 2rem;
+            /* space-x-8 */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #fecdd3;
+            /* rose-200 */
+        }
+
+        main {
+            max-width: 96rem;
+            /* 6xl */
+            margin: 0 auto;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 5rem;
+            /* space-y-20 */
+        }
+
+        /* Tanıtım Section */
+        #about {
+            padding-top: 3rem;
+        }
+
+        #about h2 {
+            font-weight: 800;
+            font-size: 2.25rem;
+            /* text-4xl */
+            margin-bottom: 2rem;
+            color: #be123c;
+            /* rose-600 */
+            text-transform: uppercase;
+            border-bottom: 0.25rem solid #fbcfe8;
+            /* rose-300 */
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        #about .content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media(min-width: 768px) {
+            #about .content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        #about img {
+            width: 100%;
+            max-height: 24rem;
+            /* max-h-96 */
+            object-fit: cover;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        #about p {
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            color: #4b5563;
+            /* gray-700 */
+        }
+
+        /* Olanaklar Section */
+        #facilities {
+            padding-top: 3rem;
+            border-top: 1px solid #fbcfe8;
+            /* rose-300 */
+        }
+
+        #facilities h2 {
+            font-weight: 800;
+            font-size: 2.25rem;
+            margin-bottom: 2rem;
+            color: #be123c;
+            text-transform: uppercase;
+            border-bottom: 0.25rem solid #fbcfe8;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        #facilities .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media(min-width: 768px) {
+            #facilities .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        #facilities .card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb;
+            /* gray-200 */
+            transition: box-shadow 0.3s ease;
+        }
+
+        #facilities .card:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        #facilities h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #be123c;
+        }
+
+        #facilities p {
+            color: #4b5563;
+            margin: 0;
+        }
+
+        /* Galeri Section */
+        #gallery {
+            padding-top: 3rem;
+            background-color: #fff1f2;
+            /* cream-100 approx */
+            border-top: 1px solid #fbcfe8;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+        }
+
+        #gallery h2 {
+            font-weight: 800;
+            font-size: 2.25rem;
+            margin-bottom: 2rem;
+            color: #be123c;
+            text-transform: uppercase;
+            border-bottom: 1px solid #fbcfe8;
+            padding-bottom: 0.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        #gallery .grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        @media(min-width: 768px) {
+            #gallery .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        #gallery .img-wrapper {
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            aspect-ratio: 4 / 3;
+            position: relative;
+        }
+
+        #gallery .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            display: block;
+        }
+
+        #gallery .img-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Fiyat Section */
+        #pricing {
+            padding-top: 3rem;
+            border-top: 1px solid #fbcfe8;
+        }
+
+        #pricing h2 {
+            font-weight: 800;
+            font-size: 2.25rem;
+            margin-bottom: 2rem;
+            color: #be123c;
+            text-transform: uppercase;
+            border-bottom: 1px solid #fbcfe8;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        #pricing ul {
+            list-style-type: disc;
+            list-style-position: inside;
+            font-size: 1.125rem;
+            color: #4b5563;
+            max-width: 28rem;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        /* Footer Section */
+        footer#contact {
+            background-color: #be123c;
+            color: white;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            margin-top: 5rem;
+        }
+
+        footer .container {
+            max-width: 96rem;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            font-size: 0.875rem;
+        }
+
+        @media(min-width: 768px) {
+            footer .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        footer h4 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid #9f1239;
+            /* rose-500 */
+            padding-bottom: 0.5rem;
+        }
+
+        footer p {
+            margin-bottom: 0.75rem;
+        }
+
+        footer .map-box {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #e11d48;
+            /* rose-500 */
+            border-radius: 0.5rem;
+            border: 1px solid #7f1d1d;
+            /* rose-700 */
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        footer .map-box h5 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        footer .map-box iframe {
+            width: 100%;
+            height: 12rem;
+            /* h-48 */
+            border-radius: 0.375rem;
+            /* rounded-md */
+            border: 1px solid #7f1d1d;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Utility */
+        .uppercase {
+            text-transform: uppercase;
+        }
+
+        .tracking-wide {
+            letter-spacing: 0.05em;
+        }
+
+        .tracking-wide-wider {
+            letter-spacing: 0.1em;
+        }
+
+        .font-bold {
+            font-weight: 700;
+        }
+
+        .font-extrabold {
+            font-weight: 800;
+        }
+
+        .font-semibold {
+            font-weight: 600;
+        }
+
+        .text-white {
+            color: white;
+        }
+
+        .text-rose-600 {
+            color: #be123c;
         }
     </style>
 </head>
 
-<body class="bg-cream-50 text-gray-900">
+<body>
 
     <!-- Top Navbar -->
-    <header class="bg-rose-600 text-white shadow-md sticky top-0 z-50">
-        <div
-            class="max-w-6xl mx-auto px-6 flex justify-between items-center h-16 uppercase tracking-wide font-bold text-sm">
+    <header>
+        <div class="container">
             <h1>AMFI34 ERKEK ÖĞRENCİ YURDU</h1>
-            <nav class="space-x-8">
-                <a href="#about" class="hover:text-rose-200 transition">Tanıtım</a>
-                <a href="#facilities" class="hover:text-rose-200 transition">Olanaklar</a>
-                <a href="#gallery" class="hover:text-rose-200 transition">Galeri</a>
-                <a href="#pricing" class="hover:text-rose-200 transition">Fiyat</a>
-                <a href="#contact" class="hover:text-rose-200 transition">İletişim</a>
+            <nav>
+                <a href="#about">Tanıtım</a>
+                <a href="#facilities">Olanaklar</a>
+                <a href="#gallery">Galeri</a>
+                <a href="#pricing">Fiyat</a>
+                <a href="#contact">İletişim</a>
             </nav>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto p-6 space-y-20">
+    <main>
 
         <!-- Tanıtım -->
-        <section id="about" class="pt-12">
-            <h2
-                class="text-4xl font-extrabold mb-8 text-rose-600 uppercase border-b-4 border-rose-300 inline-block pb-2 tracking-wide">
-                Tanıtım
-            </h2>
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-                <img src="amfi-main.jpg" alt="Yurt Girişi" class="rounded-lg shadow-md max-h-96 w-full object-cover" />
-                <p class="text-lg leading-relaxed text-gray-700">
+        <section id="about">
+            <h2>Tanıtım</h2>
+            <div class="content">
+                <img src="amfi-main.jpg" alt="Yurt Girişi" />
+                <p>
                     Amfi34 Erkek Öğrenci Yurdu, İstanbul Üsküdar'da üniversite öğrencileri için güvenli, konforlu ve
                     ekonomik bir yaşam alanı sunmaktadır.
                     Modern yapısı, ulaşım kolaylığı ve sosyal alanları ile öğrencilerin tercih ettiği bir yurttur.
@@ -51,68 +400,56 @@
         </section>
 
         <!-- Olanaklar -->
-        <section id="facilities" class="pt-12 border-t border-rose-300">
-            <h2
-                class="text-4xl font-extrabold mb-8 text-rose-600 uppercase border-b-4 border-rose-300 inline-block pb-2 tracking-wide">
-                Olanaklar
-            </h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-lg transition">
-                    <h3 class="text-xl font-semibold mb-2 uppercase tracking-wider text-rose-700">Oda Tipleri</h3>
-                    <p class="text-gray-600">2, 3, 4 ve 6 kişilik geniş odalar</p>
+        <section id="facilities">
+            <h2>Olanaklar</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Oda Tipleri</h3>
+                    <p>2, 3, 4 ve 6 kişilik geniş odalar</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-lg transition">
-                    <h3 class="text-xl font-semibold mb-2 uppercase tracking-wider text-rose-700">Yemek Hizmeti</h3>
-                    <p class="text-gray-600">Sabah kahvaltısı</p>
+                <div class="card">
+                    <h3>Yemek Hizmeti</h3>
+                    <p>Sabah kahvaltısı</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-lg transition">
-                    <h3 class="text-xl font-semibold mb-2 uppercase tracking-wider text-rose-700">Güvenlik</h3>
-                    <p class="text-gray-600">7/24 güvenlik personeli ve kamera sistemi</p>
+                <div class="card">
+                    <h3>Güvenlik</h3>
+                    <p>7/24 güvenlik personeli ve kamera sistemi</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-lg transition">
-                    <h3 class="text-xl font-semibold mb-2 uppercase tracking-wider text-rose-700">Temizlik</h3>
-                    <p class="text-gray-600">Haftalık oda temizliği ve günlük ortak alan bakımı</p>
+                <div class="card">
+                    <h3>Temizlik</h3>
+                    <p>Haftalık oda temizliği ve günlük ortak alan bakımı</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-lg transition">
-                    <h3 class="text-xl font-semibold mb-2 uppercase tracking-wider text-rose-700">İnternet</h3>
-                    <p class="text-gray-600">Hızlı ve ücretsiz Wi-Fi</p>
+                <div class="card">
+                    <h3>İnternet</h3>
+                    <p>Hızlı ve ücretsiz Wi-Fi</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-lg transition">
-                    <h3 class="text-xl font-semibold mb-2 uppercase tracking-wider text-rose-700">Sosyal Alanlar</h3>
-                    <p class="text-gray-600">Etüt salonu, dinlenme alanı, mutfak</p>
+                <div class="card">
+                    <h3>Sosyal Alanlar</h3>
+                    <p>Etüt salonu, dinlenme alanı, mutfak</p>
                 </div>
             </div>
         </section>
 
         <!-- Galeri -->
-        <section id="gallery" class="pt-12 bg-cream-100 border-t border-rose-300 rounded-lg p-6">
-            <h2
-                class="text-4xl font-extrabold mb-8 text-rose-600 uppercase border-b border-rose-300 pb-2 tracking-wide">
-                Galeri
-            </h2>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="overflow-hidden rounded-lg shadow-md aspect-[4/3]">
-                    <img src="amfi-room1.jpg" alt="Oda 1"
-                        class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+        <section id="gallery">
+            <h2>Galeri</h2>
+            <div class="grid">
+                <div class="img-wrapper">
+                    <img src="amfi-room1.jpg" alt="Oda 1" />
                 </div>
-                <div class="overflow-hidden rounded-lg shadow-md aspect-[4/3]">
-                    <img src="amfi-room2.jpg" alt="Oda 2"
-                        class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+                <div class="img-wrapper">
+                    <img src="amfi-room2.jpg" alt="Oda 2" />
                 </div>
-                <div class="overflow-hidden rounded-lg shadow-md aspect-[4/3]">
-                    <img src="amfi-common.jpg" alt="Ortak Alan"
-                        class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+                <div class="img-wrapper">
+                    <img src="amfi-common.jpg" alt="Ortak Alan" />
                 </div>
             </div>
         </section>
 
         <!-- Fiyat -->
-        <section id="pricing" class="pt-12 border-t border-rose-300">
-            <h2
-                class="text-4xl font-extrabold mb-8 text-rose-600 uppercase border-b border-rose-300 inline-block pb-2 tracking-wide">
-                Fiyatlandırma (2025)
-            </h2>
-            <ul class="list-disc list-inside text-lg text-gray-700 max-w-md mx-auto space-y-3">
+        <section id="pricing">
+            <h2>Fiyatlandırma (2025)</h2>
+            <ul>
                 <li>1 kişilik oda: 6800$</li>
                 <li>2 kişilik oda: 6050$</li>
                 <li>4 kişilik oda: 4400$</li>
@@ -121,36 +458,32 @@
         </section>
 
         <!-- Footer -->
-        <footer id="contact" class="bg-rose-600 text-white py-16 mt-20">
-            <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 text-sm">
+        <footer id="contact">
+            <div class="container">
                 <div>
-                    <h4 class="font-bold mb-4 uppercase tracking-wider border-b border-rose-500 pb-2">İletişim Bilgileri
-                    </h4>
-                    <p class="mb-3">Adres: Mimar Sinan Mah. İsmail Dümbüllü Sk. No:3/1 Üsküdar/İSTANBUL</p>
-                    <p class="mb-3">E-posta: info@amfi34yurt.com</p>
+                    <h4>İletişim Bilgileri</h4>
+                    <p>Adres: Mimar Sinan Mah. İsmail Dümbüllü Sk. No:3/1 Üsküdar/İSTANBUL</p>
+                    <p>E-posta: info@amfi34yurt.com</p>
 
-                    <div class="mt-8 p-4 bg-rose-500 rounded-lg border border-rose-700 shadow-inner">
-                        <h5 class="font-semibold mb-3 uppercase tracking-wide">Yurt Konumu</h5>
-                        <div class="w-full h-48 rounded-md overflow-hidden border border-rose-700 shadow-inner">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12034.910472773462!2d29.0404621!3d41.0265169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab87c0bdf9c3f%3A0x8396ce4937a38cc9!2sSelamiali%2C%20%C3%9Csk%C3%BCdar%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1690106500000!5m2!1str!2str"
-                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
+                    <div class="map-box">
+                        <h5>Yurt Konumu</h5>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12034.910472773462!2d29.0404621!3d41.0265169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab87c0bdf9c3f%3A0x8396ce4937a38cc9!2sSelamiali%2C%20%C3%9Csk%C3%BCdar%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1690106500000!5m2!1str!2str"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
 
                 <div>
-                    <h4 class="font-bold mb-4 uppercase tracking-wider border-b border-rose-500 pb-2">Çalışma Saatleri
-                    </h4>
-                    <p class="mb-2">Hafta içi: 09:00 - 18:00</p>
-                    <p class="mb-2">Cumartesi: 10:00 - 16:00</p>
-                    <p class="mb-2">Pazar: Kapalı</p>
+                    <h4>Çalışma Saatleri</h4>
+                    <p>Hafta içi: 09:00 - 18:00</p>
+                    <p>Cumartesi: 10:00 - 16:00</p>
+                    <p>Pazar: Kapalı</p>
                 </div>
             </div>
         </footer>
 
     </main>
+
 </body>
 
 </html>
